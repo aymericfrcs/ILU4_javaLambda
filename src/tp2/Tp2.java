@@ -65,7 +65,7 @@ public class Tp2 {
 	        Expr<Integer> e2 = y -> 5;
 	        Expr<Integer> e = e1.mul(e1).add(e2);
 	        
-	        System.out.println(Expr.Var(2));
+	        System.out.println();
 	    }
 	}
 	
