@@ -31,9 +31,18 @@ public class Tp2 {
 	public interface Expr<V> {
 		int eval(Function<V, Integer> env);
 		
-		static Expr Var(V v) {
-			
+		static <V> Expr<V> Var(V v) {
+			return env -> env.apply(v);
 		}
+		
+		default Expr<V> add(Expr<V> exp) {
+			return env -> this.eval(env) + exp.eval(env);
+		}
+		
+		default Expr<V> mul(Expr<V> exp) {
+			return env -> this.eval(env) * exp.eval(env);
+		}
+		
 	}
 		
 	public class Main {
@@ -52,6 +61,11 @@ public class Tp2 {
 	        //EXERCICE 2
 	        
 	        
+	        Expr<Integer> e1 = x -> 2;
+	        Expr<Integer> e2 = y -> 5;
+	        Expr<Integer> e = e1.mul(e1).add(e2);
+	        
+	        System.out.println(Expr.Var(2));
 	    }
 	}
 	
