@@ -18,8 +18,8 @@ public class Tp2 {
 			
 					
 			for (int i=1; i<n; i++) {
-				double aTemp = a+(i*(h));
-				double bTemp = aTemp + h;
+				double aTemp = a+(i*(h)); //borne inf du trapeze
+				double bTemp = aTemp + h; //borne sup du trapeze
 				
 				somme += h * (apply(aTemp)+apply(bTemp))/2; //calcul d'un trapeze
 				
